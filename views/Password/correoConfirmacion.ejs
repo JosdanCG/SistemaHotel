@@ -1,0 +1,26 @@
+<%- include("../templates/bootstrap") %>
+
+    <div class="login-card-container">
+
+        <link rel="stylesheet" href="/style.css">
+        <div class="login-card">
+            <div class="login-card-logo">
+                <img src="/isla-con-palmera.png" alt="logo">
+            </div>
+            <div class="login-card-header">
+                <h1>Password Change</h1>
+                <div>Actualizar la contraseña existente por una nueva.</div>
+            </div>
+            <form class="login-card-form" action="/recuperar-contrasena" method="post">
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-outlined">person</span>
+                    <input type="email" name="emailr" placeholder="Ingresar Correo" required autofocus>
+                </div>
+
+                <button id="in" type="submit">INGRESAR</button>
+            </form>
+            <div class="login-card-footer">
+                ¿Desea regresar al login? <a href="/">regresar</a>
+            </div>
+        </div>
+    </div>

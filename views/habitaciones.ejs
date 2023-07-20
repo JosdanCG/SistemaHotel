@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <%- include("templates/bootstrap")%>
+            <%- include("templates/nav")%>
+                <div class="col px-0 flex-grow-1">
+                    <link rel="stylesheet" href="/habitaciones.css">
+                    <div class="container ">
+                        <div class="row">
+                            <% result.forEach((user)=>{%>
+                                <div class="col-3  mt-2">
+                                    <%if(user.EstadoH==="Ocupado"){%>
+                                        <div id="cardd" class="card" style="background-color: red;">
+                                            <%} if(user.EstadoH==="Disponible" ){%>
+                                                <div id="cardd" class="card" style="background-color: #009688;">
+                                                    <%} if(user.EstadoH==="Limpiesa" ){%>
+                                                        <div id="cardd" class="card" style="background-color: #00d9ff;">
+                                                            <%} %>
+                                                                <div class="row justify-content-start">
+                                                                    <div class="col-7 mt-2 ms-3">
+                                                                        <h5 class="card-text">Nro: <%=
+                                                                                user.NmroHabitacion %>
+                                                                        </h5>
+                                                                        <p class="card-text">Tipo: <%= user.TipoH %>
+                                                                        </p>
+
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        <!-- <a href="https://www.flaticon.com/free-icons/hotel" title="hotel icons"></a> -->
+                                                                        <img src="/icons/beds.png"
+                                                                            class="hab card-img-top mt-1">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card text-estado text-center">
+                                                                    <p id="estado" class="card-text m-1">
+                                                                        <%= user.EstadoH %>
+                                                                            <a
+                                                                                href="/reservaHab/<%= user.IdHabitacion %>"><img
+                                                                                    class="ms-2" src="/siguiente.png"
+                                                                                    width="20px" alt=""></a>
+                                                                    </p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <% }) %>
+                                        </div>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>

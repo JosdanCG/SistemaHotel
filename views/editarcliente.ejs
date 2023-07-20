@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <%- include("templates/bootstrap")%>
+            <%- include("templates/nav")%>
+                <link rel="stylesheet" href="/style.css">
+                <div class="col px-0 flex-grow-1">
+                    <div class="container mt-5">
+                        <div class="row">
+
+                            <% if(cliente){ %>
+                                <!--formulario del cliente-->
+                                <div class="col-md-5">
+                                    <div class="card-body">
+                                        <form action="/updatecliente" method="post">
+
+                                            <input type="text" name="idcliente" placeholder="IdCliente"
+                                                value="<%= cliente.IdCliente %>" class="form-control mb-2" autofocus
+                                                readonly />
+                                            <input type="text" name="name" placeholder="Nombre"
+                                                value="<%= cliente.Nombres %>" class="form-control mb-2" autofocus />
+                                            <input type="text" name="apellido" placeholder="Apellido"
+                                                value="<%= cliente.Apellidos %>" class="form-control mb-2" autofocus />
+                                            <input type="text" name="dni" placeholder="DNI" value="<%= cliente.DNI %>"
+                                                class="form-control mb-2" />
+                                            <input type="text" name="celular" placeholder="Celular"
+                                                value="<%= cliente.Telefono %>" class="form-control mb-2" />
+
+                                            <button type="submit" class="btn btn-info">Guardar cliente</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>

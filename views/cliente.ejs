@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <%- include("templates/bootstrap")%>
+            <%- include("templates/nav")%>
+
+                <link rel="stylesheet" href="/style.css">
+                <div class="col px-0 flex-grow-1">
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-7">
+
+                                <main class="tabla">
+
+                                    <section class="nav-title">
+                                        <h2>Listado de Clientes</h2>
+                                    </section>
+
+                                    <section class="tabla-cliente">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>n°</th>
+                                                    <th>DNI</th>
+                                                    <th>Nombre</th>
+                                                    <th>Apellido</th>
+                                                    <th>celular</th>
+                                                    <th>Accion</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% results.forEach (user=> {%>
+                                                    <tr>
+                                                        <td>
+                                                            <%= user.IdCliente %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.DNI %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.Nombres %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.Apellidos %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.Telefono %>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="/eliminarclientes/<%= user.IdCliente %>"
+                                                                class="btn btn-cliente delete"> <img
+                                                                    src="/delete_icon.svg"></img></a>
+                                                            <a href="/editarclientes/<%= user.IdCliente %>"
+                                                                class="btn btn-cliente edit"><img
+                                                                    src="/edit_icon.svg"></img></a>
+                                                        </td>
+
+                                                    </tr>
+
+
+                                                    <% })%>
+                                            </tbody>
+                                        </table>
+
+                                    </section>
+
+                                </main>
+
+                            </div>
+
+                            <!--formulario del cliente-->
+                            <div class="col-md-5">
+                                <div class="card-body">
+                                    <form action="/guardarcliente" method="post">
+
+                                        <input type="text" name="name" placeholder="Nombre" class="form-control mb-2"
+                                            autofocus />
+                                        <input type="text" name="apellido" placeholder="Apellido"
+                                            class="form-control mb-2" autofocus />
+                                        <input type="text" name="dni" placeholder="DNI" class="form-control mb-2" />
+                                        <input type="text" name="celular" placeholder="Celular"
+                                            class="form-control mb-2" />
+
+                                        <button type="submit" class="btn btn-info">Guardar cliente</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
